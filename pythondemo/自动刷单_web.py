@@ -40,10 +40,17 @@ class Work:
         # 重复检测网址是否能打开
         while True:
             self.wd.get("http://www.pslink.cn/S3/jd1/106291")
-            if "京东" in self.wd.find_element_by_xpath('/html/body/div[1]/form/div[1]/h3').text:
-                break
+            try:
+                web_title=self.wd.find_element_by_xpath('/html/body/div[1]/form/div[1]/h3').text
+                if "京东" in web_title:
+                    print(web_title)
+                    break
+                else:
+                    time.sleep(4)
+            except Exception as f:
+                continue
             else:
-                time.sleep(4)
+                print("网页正常打开")
         # 用户名
         self.wd.find_element_by_xpath('/html/body/div[1]/form/div[2]/div[3]/input').send_keys(name)
         time.sleep(0.5)

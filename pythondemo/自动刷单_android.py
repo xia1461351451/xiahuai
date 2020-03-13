@@ -32,10 +32,17 @@ class Work:
 
         while True:
             self.wd.get("http://www.pslink.cn/S3/jd1/106291")
-            if "京东" in self.wd.find_element_by_xpath('/html/body/div[1]/form/div[1]/h3').text:
-                break
+            try:
+                web_title = self.wd.find_element_by_xpath('/html/body/div[1]/form/div[1]/h3').text
+                if "京东" in web_title:
+                    print(web_title)
+                    break
+                else:
+                    time.sleep(4)
+            except Exception as f:
+                continue
             else:
-                time.sleep(1)
+                print("网页正常打开")
 
 
         # 手机号

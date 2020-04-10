@@ -51,7 +51,7 @@ class GUI:
         self.keyboard.press(Key.enter)
         self.keyboard.release(Key.enter)
     def sendmesages(self,li):
-        for i in range(1,100000):
+        for i in range(1,10):
             self.keyboard.type(random.choice(li))
             self.keyboard.press(Key.enter)
             time.sleep(0.5)
@@ -62,8 +62,7 @@ class GUI:
         pass
 if __name__ == '__main__':
     s = GUI()
-    s.loginQQ('1461351451','xiahuai19961214')
-    li = ['艺静弟弟，起来上厕所了', '弟弟，大哥写的程序牛逼不？', '不要崇拜哥，哥只是个传说', '弟弟，请说出你的梦想', '弟弟，是不是在等下班？',
-          '你能不能像大哥一样，聪明一点', '轻轻的我走了，正如我轻轻的来', '弟弟，加油，加油，加油']
+    s.loginQQ('1461351451','xiahuai1996')
+    li = ['这个世界就是这么神奇']
     s.findqq('1540092121')
     s.sendmesages(li)

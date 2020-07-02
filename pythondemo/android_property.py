@@ -67,14 +67,18 @@ def get_information():
     print(packagename,activityname,pid,userId)
     return packagename,activityname,pid,userId
 # 获取流量wifi
-def get_gprs(pid):
+def get_gprs():
+    pid=get_information()[2]
+    pid=int(pid)
     cmd=f'adb shell cat /proc/{pid}/net/dev'
+    # cmd=f'adb shell cat /proc/6124/net/dev'
     result=os.popen(cmd).readlines()
     # print(result)
     for i in result:
-        if ' wlan0:'in i:
-            # print(i)
+        if 'eth0:'in i:
+            print(i)
             gprs=re.findall('\d{4,}',i)
+            # print(gprs)
             Receive_gprs=str(round(float((int(gprs[0])/1024/1024)),2))
             Transmit_gprs=str(round(float((int(gprs[2])/1024/1024)),2))
             print("下载流量："+Receive_gprs+' M',"上传流量："+Transmit_gprs+' M')
@@ -147,15 +151,15 @@ def get_fps(pkg_name, devices):
 
 if __name__ == '__main__':
     # get_meninfo("10.6.252.236:8278")
-    while 1:
-        get_cpuinfo("192.168.137.152:5555")
-        time.sleep(10)
+    # while 1:
+    #     get_cpuinfo("192.168.137.152:5555")
+    #     time.sleep(10)
     #     # get_meninfo("192.168.0.101:5555")
     #     pass
-        get_information()
+    #     get_information()
     #     li=['20302','20615','20689','20852','20999']
     #     for i in li:
-    #         get_gprs(11525)
+            get_gprs()
     # #         print(i)
     #         time.sleep(3)
     # 下载347M 上传12M

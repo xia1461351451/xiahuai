@@ -612,6 +612,6 @@ class Test_interface(Frame):
 
 
 if __name__ == '__main__':
-    # A=Login(master=Tk())
-    # if A.user_stste==True:
+    A=Login(master=Tk())
+    if A.user_stste==True:
         Test_interface(master=Tk())

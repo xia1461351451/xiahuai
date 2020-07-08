@@ -29,7 +29,7 @@ class Login(Frame,Main):
         self.v2 = StringVar()
         global photo
         # 用户名
-        photo = PhotoImage(file='./1.gif')
+        photo = PhotoImage(file=r'E:\pythonproject\GUI自动化\tk_learn\1.gif')
         lable = Label(self.root, image=photo)
         lable.place(x=0, y=0)
         lable_user = Label(self.root, text='用户名：', font=('黑体', "16"))
@@ -114,11 +114,11 @@ class Login(Frame,Main):
         top = Toplevel()
         top.title('感谢技术支持')
         top.geometry('850x450+150+100')
-        photo = PhotoImage(file='./zfb.png')
+        photo = PhotoImage(file=r'E:\pythonproject\GUI自动化\tk_learn\zfb.png')
         lable1 = Label(top, image=photo)
         lable1.place(x=0, y=0)
 
-        photo1 = PhotoImage(file='./wx.png')
+        photo1 = PhotoImage(file=r'E:\pythonproject\GUI自动化\tk_learn\wx.png')
         lable2 = Label(top, image=photo1)
         lable2.place(x=420, y=0)
 
